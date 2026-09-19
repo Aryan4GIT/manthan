@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { useStructuredData } from '@/lib/seo'
+import { AnnouncementBar } from './AnnouncementBar'
 import { Footer } from './Footer'
 import { FloatingWhatsApp, MobileBottomNav, StickyCartBar } from './MobileBars'
 import { Navbar } from './Navbar'
@@ -28,8 +29,9 @@ export function Layout() {
         Skip to content
       </a>
       <ScrollToTop />
+      <AnnouncementBar />
       <Navbar />
-      <main id="main" className="pb-24 md:pb-0">
+      <main id="main">
         <Outlet />
       </main>
       <Footer />

@@ -20,7 +20,7 @@ export function CartLineItem({ line, compact = false }: { line: CartLine; compac
           <button
             type="button"
             onClick={() => remove(product.id)}
-            className="-mt-1 -mr-1 flex size-8 shrink-0 items-center justify-center rounded-full text-ink-400 transition-colors hover:bg-brand-50 hover:text-ink-900"
+            className="-mt-2 -mr-2 flex size-10 shrink-0 items-center justify-center rounded-full text-ink-400 transition-colors hover:bg-brand-50 hover:text-ink-900"
             aria-label={`Remove ${product.name} from cart`}
           >
             <X className="size-4" />
@@ -28,7 +28,7 @@ export function CartLineItem({ line, compact = false }: { line: CartLine; compac
         </div>
         <div className="mt-2 flex items-center justify-between gap-2">
           <QtyStepper qty={qty} onChange={(n) => setQty(product.id, n)} size="sm" name={product.name} />
-          <p className="font-extrabold text-ink-900 tabular">{formatINR(product.price * qty)}</p>
+          <p className="font-bold text-ink-900 tabular">{formatINR(product.price * qty)}</p>
         </div>
       </div>
     </li>

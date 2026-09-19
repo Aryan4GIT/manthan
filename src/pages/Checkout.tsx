@@ -74,7 +74,7 @@ export function Checkout() {
       <>
         <PageHero title="Place order" />
         <section className="container-x pb-8">
-          <div className="rounded-[2rem] bg-white px-6 py-16 text-center shadow-card">
+          <div className="card rounded-[2rem] px-6 py-16 text-center">
             <div className="mx-auto flex size-16 items-center justify-center rounded-full bg-brand-50 text-brand-700">
               <ShoppingBasket className="size-8" />
             </div>
@@ -104,7 +104,7 @@ export function Checkout() {
       <section className="container-x pb-8">
         <form onSubmit={submit} noValidate className="grid gap-6 lg:grid-cols-[1fr_24rem] lg:items-start">
           <div className="grid gap-6">
-            <div className="rounded-[2rem] bg-white p-6 shadow-card sm:p-8">
+            <div className="card rounded-[2rem] p-6 sm:p-8">
               <h2 className="text-xl font-bold">Your details</h2>
               <div className="mt-5 grid gap-4 sm:grid-cols-2">
                 <div>
@@ -120,7 +120,7 @@ export function Checkout() {
               </div>
             </div>
 
-            <fieldset className="rounded-[2rem] bg-white p-6 shadow-card sm:p-8">
+            <fieldset className="card rounded-[2rem] p-6 sm:p-8">
               <legend className="text-xl font-bold">How would you like it?</legend>
               <div className={cn('mt-5 grid gap-3', canDeliver && 'sm:grid-cols-2')}>
                 {canDeliver && (
@@ -171,7 +171,7 @@ export function Checkout() {
             </fieldset>
           </div>
 
-          <aside className="rounded-[2rem] bg-white p-6 shadow-card lg:sticky lg:top-24">
+          <aside className="card rounded-[2rem] p-6 lg:sticky lg:top-24">
             <h2 className="text-xl font-bold">Order summary</h2>
             <ul className="mt-4 max-h-72 divide-y divide-line/70 overflow-y-auto text-sm">
               {lines.map((l) => (
@@ -188,7 +188,7 @@ export function Checkout() {
             </ul>
             <div className="mt-3 flex items-center justify-between border-t border-line pt-3">
               <span className="font-bold">Total ({count} {count === 1 ? 'item' : 'items'})</span>
-              <span className="text-2xl font-extrabold tabular">{formatINR(subtotal)}</span>
+              <span className="text-2xl font-bold tabular">{formatINR(subtotal)}</span>
             </div>
             {catalogue.isDemo && <p className="mt-2 text-xs text-ink-400">{catalogue.notice}</p>}
 

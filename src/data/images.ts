@@ -7,6 +7,32 @@
 export const unsplash = (id: string, w = 1200, h?: number) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&q=75&w=${w}${h ? `&h=${h}` : ''}`
 
+/**
+ * Builds a `srcSet` for an Unsplash URL so phones download a 320–640px
+ * file instead of the desktop size. Returns undefined for any other host,
+ * so the store's own images keep working untouched.
+ */
+export function responsive(url: string, widths = [320, 480, 640, 960, 1280]) {
+  let u: URL
+  try {
+    u = new URL(url)
+  } catch {
+    return undefined
+  }
+  if (!u.hostname.endsWith('unsplash.com')) return undefined
+  const w = Number(u.searchParams.get('w')) || 1200
+  const h = Number(u.searchParams.get('h')) || 0
+  return widths
+    .filter((x) => x <= w)
+    .map((x) => {
+      const c = new URL(u)
+      c.searchParams.set('w', String(x))
+      if (h) c.searchParams.set('h', String(Math.round((x * h) / w)))
+      return `${c} ${x}w`
+    })
+    .join(', ')
+}
+
 export const images = {
   hero: {
     main: unsplash('1542838132-92c53300491e', 1400, 1120),

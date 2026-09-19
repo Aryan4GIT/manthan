@@ -44,7 +44,7 @@ export function Contact() {
                 </span>
               </>
             )
-            const cls = 'flex h-full items-center gap-3.5 rounded-2xl bg-white p-4 shadow-card transition-[transform,box-shadow] hover:-translate-y-0.5 hover:shadow-lift'
+            const cls = 'card flex h-full items-center gap-3.5 rounded-2xl p-4 transition-[transform,box-shadow] hover:-translate-y-0.5 hover:shadow-lift'
             return (
               <li key={title}>
                 {href ? (

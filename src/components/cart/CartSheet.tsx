@@ -49,7 +49,7 @@ export function CartSheet({ open, onOpenChange }: Props) {
             <div className="border-t border-line bg-paper px-6 py-5">
               <div className="flex items-center justify-between">
                 <span className="text-sm font-semibold text-ink-600">Subtotal</span>
-                <span className="text-xl font-extrabold tabular">{formatINR(subtotal)}</span>
+                <span className="text-xl font-bold tabular">{formatINR(subtotal)}</span>
               </div>
               {catalogue.isDemo && <p className="mt-1 text-xs text-ink-400">{catalogue.notice}</p>}
               <div className="mt-4 grid gap-2">

@@ -17,7 +17,7 @@ export function Cart() {
       <PageHero title="Your cart" lead={count === 0 ? 'Nothing added yet.' : `${count} ${count === 1 ? 'item' : 'items'}, ready to order on WhatsApp.`} />
       <section className="container-x pb-8">
         {lines.length === 0 ? (
-          <div className="rounded-[2rem] bg-white px-6 py-16 text-center shadow-card">
+          <div className="card rounded-[2rem] px-6 py-16 text-center">
             <div className="mx-auto flex size-16 items-center justify-center rounded-full bg-brand-50 text-brand-700">
               <ShoppingBasket className="size-8" />
             </div>
@@ -31,7 +31,7 @@ export function Cart() {
           </div>
         ) : (
           <div className="grid gap-6 lg:grid-cols-[1fr_22rem] lg:items-start">
-            <div className="rounded-[2rem] bg-white px-6 shadow-card">
+            <div className="card rounded-[2rem] px-6">
               <ul className="divide-y divide-line/70">
                 {lines.map((l) => (
                   <CartLineItem key={l.product.id} line={l} />
@@ -44,7 +44,7 @@ export function Cart() {
               </div>
             </div>
 
-            <aside className="rounded-[2rem] bg-white p-6 shadow-card lg:sticky lg:top-24">
+            <aside className="card rounded-[2rem] p-6 lg:sticky lg:top-24">
               <h2 className="text-xl font-bold">Order summary</h2>
               <dl className="mt-4 space-y-2 text-sm">
                 <div className="flex justify-between">
@@ -53,7 +53,7 @@ export function Cart() {
                 </div>
                 <div className="flex justify-between border-t border-line pt-3 text-base">
                   <dt className="font-bold">Subtotal</dt>
-                  <dd className="text-xl font-extrabold tabular">{formatINR(subtotal)}</dd>
+                  <dd className="text-xl font-bold tabular">{formatINR(subtotal)}</dd>
                 </div>
               </dl>
               {catalogue.isDemo && <p className="mt-3 text-xs text-ink-400">{catalogue.notice}</p>}

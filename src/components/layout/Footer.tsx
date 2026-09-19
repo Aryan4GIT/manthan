@@ -7,12 +7,12 @@ import { telHref, waHref } from '@/lib/format'
 import { hoursRange } from '@/lib/hours'
 import { navLinks } from './nav-links'
 
-const linkClass = 'inline-flex items-center gap-2 text-white/75 transition-colors hover:text-white'
+const linkClass = 'inline-flex items-center gap-2 py-1 text-white/75 transition-colors hover:text-white'
 
 export function Footer() {
   const wa = waHref()
   return (
-    <footer className="relative mt-24 overflow-hidden bg-brand-900 text-white">
+    <footer className="grain relative mt-20 overflow-hidden bg-brand-900 pb-[calc(8rem+env(safe-area-inset-bottom))] text-white sm:mt-24 md:pb-0">
       <div className="glow-band pointer-events-none absolute inset-0" aria-hidden="true" />
       <div className="container-x relative grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] lg:gap-8">
         <div>
@@ -37,7 +37,7 @@ export function Footer() {
 
         <div>
           <h3 className="font-display text-lg font-bold">Quick links</h3>
-          <ul className="mt-4 space-y-2.5 text-sm">
+          <ul className="mt-3 space-y-1 text-sm">
             {navLinks.map((l) => (
               <li key={l.to}>
                 <Link to={l.to} className={linkClass}>
@@ -50,7 +50,7 @@ export function Footer() {
 
         <div>
           <h3 className="font-display text-lg font-bold">Customer support</h3>
-          <ul className="mt-4 space-y-2.5 text-sm">
+          <ul className="mt-3 space-y-1 text-sm">
             <li>
               <a href={telHref(business.phone)} className={linkClass}>
                 <Phone className="size-4" /> Call {business.phoneDisplay}

@@ -7,8 +7,8 @@ export function GoogleReviews() {
   if (!business.rating || !business.reviewCount) return null
   const full = Math.floor(business.rating)
   return (
-    <section className="container-x py-16 sm:py-24">
-      <div className="grid gap-8 rounded-[2rem] bg-white p-6 shadow-card sm:p-10 lg:grid-cols-[minmax(0,17rem)_1fr] lg:gap-14">
+    <section className="container-x cv-auto py-14 sm:py-24">
+      <div className="card grid gap-8 rounded-[2rem] p-6 sm:p-10 lg:grid-cols-[minmax(0,17rem)_1fr] lg:gap-14">
         <div>
           <p className="inline-flex items-center gap-2 text-sm font-semibold text-ink-600">
             <GoogleIcon className="size-5" /> Rating on Google

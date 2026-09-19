@@ -10,7 +10,7 @@ export function LocationSection({ heading = true }: { heading?: boolean }) {
   const status = openStatus()
   const wa = waHref()
   return (
-    <section id="location" className="container-x py-16 sm:py-24">
+    <section id="location" className="container-x cv-auto py-14 sm:py-24">
       {heading && (
         <SectionHeading
           title="Find us on MG Road"
@@ -29,7 +29,7 @@ export function LocationSection({ heading = true }: { heading?: boolean }) {
           />
         </div>
 
-        <div className="flex flex-col rounded-[2rem] bg-white p-6 shadow-card sm:p-8">
+        <div className="card flex flex-col rounded-[2rem] p-6 sm:p-8">
           <h3 className="text-2xl font-bold">{business.name}</h3>
           <p className="mt-1 text-sm text-ink-600">{business.category}</p>
 

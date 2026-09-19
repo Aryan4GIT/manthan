@@ -2,7 +2,7 @@ import { CircleParking, Gift, Globe, HandHelping, Leaf, Ruler, TrainFront, Truck
 import { Reveal } from '@/components/Reveal'
 import { SectionHeading } from '@/components/SectionHeading'
 import { business } from '@/data/business'
-import { images } from '@/data/images'
+import { images, responsive } from '@/data/images'
 import { hoursRange } from '@/lib/hours'
 
 interface Benefit {
@@ -23,7 +23,7 @@ const benefits: Benefit[] = [
 
 export function WhyUs() {
   return (
-    <section className="container-x py-16 sm:py-24">
+    <section className="container-x cv-auto py-14 sm:py-24">
       <SectionHeading
         title={`Why shop at ${business.name}?`}
         lead="A neighbourhood supermarket with the range of a gourmet store, and the everyday prices and service of a local shop."
@@ -33,6 +33,8 @@ export function WhyUs() {
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-lift sm:aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[34rem]">
             <img
               src={images.aisle}
+              srcSet={responsive(images.aisle, [480, 720, 960, 1200])}
+              sizes="(min-width: 1024px) 44vw, 100vw"
               alt="Shelves stocked with fresh produce inside a supermarket"
               loading="lazy"
               decoding="async"

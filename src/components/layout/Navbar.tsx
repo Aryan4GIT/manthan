@@ -43,8 +43,8 @@ export function Navbar() {
       <div className="container-x">
         <div
           className={cn(
-            'glass flex items-center justify-between gap-3 rounded-2xl px-3 transition-all duration-300 sm:px-4',
-            scrolled ? 'h-14 shadow-lift' : 'h-16 sm:h-[4.5rem]',
+            'glass flex items-center justify-between gap-2 rounded-2xl px-2.5 transition-all duration-300 sm:gap-3 sm:px-4',
+            scrolled ? 'h-14 shadow-lift' : 'h-15 sm:h-[4.5rem]',
           )}
         >
           <Logo className="shrink-0" />
@@ -67,11 +67,11 @@ export function Navbar() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            <Button variant="ghost" size="icon" aria-label="Search products" onClick={() => setSearchOpen(true)}>
+          <div className="flex items-center gap-0.5 sm:gap-2">
+            <Button variant="ghost" size="icon" className="size-10 sm:size-11" aria-label="Search products" onClick={() => setSearchOpen(true)}>
               <Search />
             </Button>
-            <Button variant="ghost" size="icon" className="relative" aria-label={count === 1 ? 'Cart, 1 item' : `Cart, ${count} items`} onClick={() => setCartOpen(true)}>
+            <Button variant="ghost" size="icon" className="relative size-10 sm:size-11" aria-label={count === 1 ? 'Cart, 1 item' : `Cart, ${count} items`} onClick={() => setCartOpen(true)}>
               <ShoppingBasket />
               {count > 0 && (
                 <span className="shine absolute -top-0.5 -right-0.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-mango-500 px-1 text-[11px] font-bold text-ink-900 tabular">
@@ -87,7 +87,7 @@ export function Navbar() {
                 </a>
               </Button>
             )}
-            <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Open menu" onClick={() => setMenuOpen(true)}>
+            <Button variant="ghost" size="icon" className="size-10 sm:size-11 lg:hidden" aria-label="Open menu" onClick={() => setMenuOpen(true)}>
               <Menu />
             </Button>
           </div>

@@ -43,7 +43,7 @@ export function Shop() {
         <form
           role="search"
           onSubmit={(e) => e.preventDefault()}
-          className="glass flex h-14 max-w-xl items-center gap-3 rounded-2xl px-4"
+          className="glass-lite flex h-14 max-w-xl items-center gap-3 rounded-2xl px-4 sm:glass"
         >
           <Search className="size-5 shrink-0 text-ink-400" />
           <input

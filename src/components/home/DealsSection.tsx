@@ -2,6 +2,7 @@ import { ArrowRight, BadgePercent, ExternalLink } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Reveal } from '@/components/Reveal'
 import { Badge } from '@/components/ui/badge'
+import { responsive } from '@/data/images'
 import { offers, type Offer } from '@/data/offers'
 import { cn } from '@/lib/utils'
 
@@ -10,13 +11,15 @@ function OfferCard({ offer, large }: { offer: Offer; large: boolean }) {
   return (
     <div
       className={cn(
-        'group relative flex flex-col overflow-hidden rounded-3xl shadow-card transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-lift',
+        'group relative flex w-full flex-col overflow-hidden rounded-3xl shadow-card ring-1 ring-brand-900/10 transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-lift',
         large ? 'min-h-72 sm:col-span-2 sm:min-h-80' : 'min-h-64',
         offer.tone === 'green' ? 'bg-brand-900' : 'bg-mango-700',
       )}
     >
       <img
         src={offer.image}
+        srcSet={responsive(offer.image, [360, 540, 720, 900])}
+        sizes={large ? '(min-width: 1024px) 50vw, 100vw' : '(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw'}
         alt=""
         loading="lazy"
         decoding="async"

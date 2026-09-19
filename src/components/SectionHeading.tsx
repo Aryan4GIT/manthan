@@ -13,16 +13,16 @@ interface Props {
 
 export function SectionHeading({ title, lead, action, className, light }: Props) {
   return (
-    <div className={cn('flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between', className)}>
+    <div className={cn('flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-6', className)}>
       <div className="max-w-2xl">
-        <h2 className={cn('text-3xl font-bold sm:text-4xl', light ? 'text-white' : 'text-ink-900')}>{title}</h2>
-        {lead && <p className={cn('mt-3 text-base leading-relaxed sm:text-lg', light ? 'text-white/75' : 'text-ink-600')}>{lead}</p>}
+        <h2 className={cn('text-[1.9rem] leading-tight font-bold sm:text-4xl lg:text-[2.75rem]', light ? 'text-white' : 'text-ink-900')}>{title}</h2>
+        {lead && <p className={cn('mt-2.5 text-base leading-relaxed sm:mt-3 sm:text-lg', light ? 'text-white/75' : 'text-ink-600')}>{lead}</p>}
       </div>
       {action && (
         <Link
           to={action.to}
           className={cn(
-            'group inline-flex shrink-0 items-center gap-1.5 text-sm font-bold transition-colors',
+            'group inline-flex shrink-0 items-center gap-1.5 self-start rounded-full py-1.5 text-sm font-bold transition-colors sm:self-auto',
             light ? 'text-mango-400 hover:text-mango-200' : 'text-brand-700 hover:text-brand-900',
           )}
         >

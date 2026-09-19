@@ -11,8 +11,8 @@ interface Props {
 
 export function QtyStepper({ qty, onChange, size = 'md', className, name }: Props) {
   const btn = cn(
-    'inline-flex items-center justify-center rounded-full text-brand-800 transition-colors hover:bg-brand-100 disabled:opacity-40',
-    size === 'sm' ? 'size-8 [&_svg]:size-4' : 'size-9 [&_svg]:size-4',
+    'inline-flex items-center justify-center rounded-full text-brand-800 transition-colors hover:bg-brand-100 active:bg-brand-200 disabled:opacity-40 [&_svg]:size-4',
+    size === 'sm' ? 'size-9' : 'size-10',
   )
   return (
     <div

@@ -16,11 +16,11 @@ export function LogoMark({ className }: { className?: string }) {
 export function Logo({ className, light = false }: { className?: string; light?: boolean }) {
   const [first, ...rest] = business.name.split(' ')
   return (
-    <Link to="/" className={cn('inline-flex items-center gap-2.5', className)} aria-label={`${business.name} home`}>
-      <LogoMark className={light ? 'text-white/15' : 'text-brand-700'} />
-      <span className="font-display text-xl leading-none font-bold tracking-tight">
+    <Link to="/" className={cn('inline-flex items-center gap-2 sm:gap-2.5', className)} aria-label={`${business.name} home`}>
+      <LogoMark className={cn('size-9 sm:size-10', light ? 'text-white/15' : 'text-brand-700')} />
+      <span className="font-display text-lg leading-none font-bold tracking-tight sm:text-xl">
         {first}
-        <span className={cn('font-semibold', light ? 'text-mango-400' : 'text-brand-700')}> {rest.join(' ')}</span>
+        <span className={cn('font-semibold max-[359px]:hidden', light ? 'text-mango-400' : 'text-brand-700')}> {rest.join(' ')}</span>
       </span>
     </Link>
   )

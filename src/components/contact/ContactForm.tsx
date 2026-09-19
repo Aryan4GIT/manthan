@@ -50,7 +50,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="rounded-[2rem] bg-white p-6 shadow-card sm:p-8">
+    <form onSubmit={onSubmit} noValidate className="card rounded-[2rem] p-6 sm:p-8">
       <h3 className="text-2xl font-bold">Send an enquiry</h3>
       <p className="mt-1 text-sm text-ink-600">
         {business.whatsapp ? 'Opens WhatsApp with your message ready to send.' : 'Copy your message and call us, we will help right away.'}

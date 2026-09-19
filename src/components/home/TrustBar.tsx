@@ -46,9 +46,9 @@ export function TrustBar() {
   }
 
   return (
-    <section aria-label="Store highlights" className="relative mt-6 overflow-hidden bg-brand-900 py-8 text-white sm:py-10">
+    <section aria-label="Store highlights" className="grain relative mt-4 overflow-hidden bg-brand-900 py-6 text-white sm:mt-6 sm:py-10">
       <div className="glow-band pointer-events-none absolute inset-0" aria-hidden="true" />
-      <div className="container-x relative grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="container-x relative grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3 lg:grid-cols-4">
         {cards.map(({ Icon, iconClass, title, detail, href }) => {
           const inner = (
             <>
@@ -56,12 +56,12 @@ export function TrustBar() {
                 <Icon className="size-5" />
               </span>
               <span className="min-w-0">
-                <span className="block font-bold leading-snug">{title}</span>
+                <span className="block font-display text-[15px] font-bold leading-snug sm:text-base">{title}</span>
                 <span className="mt-0.5 block text-sm text-white/70">{detail}</span>
               </span>
             </>
           )
-          const cls = 'glass-dark flex items-center gap-3.5 rounded-2xl p-4 transition-colors'
+          const cls = 'glass-dark flex items-center gap-3.5 rounded-2xl p-3.5 transition-colors sm:p-4'
           return href ? (
             <a key={title} href={href} target="_blank" rel="noopener noreferrer" className={cn(cls, 'hover:bg-white/15')}>
               {inner}
