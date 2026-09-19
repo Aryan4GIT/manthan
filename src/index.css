@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+/* ── Design tokens ─────────────────────────────────────────────── */
+@theme {
+  --font-display: "Bricolage Grotesque", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Deep leaf green: the brand workhorse */
+  --color-brand-950: #042a17;
+  --color-brand-900: #063d22;
+  --color-brand-800: #08532e;
+  --color-brand-700: #0b6b3a;
+  --color-brand-600: #128a4a;
+  --color-brand-500: #1fa35b;
+  --color-brand-400: #4cc27f;
+  --color-brand-300: #8bd9a9;
+  --color-brand-200: #bfe8cf;
+  --color-brand-100: #e3f3e9;
+  --color-brand-50: #f1f8f3;
+
+  /* Mango: reserved for deals and order actions */
+  --color-mango-700: #b8730a;
+  --color-mango-600: #e39a12;
+  --color-mango-500: #f7b32b;
+  --color-mango-400: #ffc857;
+  --color-mango-200: #ffe3a3;
+  --color-mango-100: #fff1d6;
+  --color-mango-50: #fff8ea;
+
+  --color-fresh: #b9e56b;
+  --color-tomato: #e5484d;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-dark: #1da851;
+
+  --color-paper: #f6f9f6;
+  --color-ink-900: #17211b;
+  --color-ink-700: #2e3b33;
+  --color-ink-600: #4f5e55;
+  --color-ink-400: #8a968f;
+  --color-line: #e1e8e3;
+
+  --shadow-card: 0 1px 2px rgb(6 61 34 / 0.05), 0 10px 30px -12px rgb(6 61 34 / 0.18);
+  --shadow-lift: 0 2px 4px rgb(6 61 34 / 0.06), 0 22px 44px -16px rgb(6 61 34 / 0.3);
+  --shadow-glass: 0 8px 32px -8px rgb(6 61 34 / 0.25), inset 0 1px 0 rgb(255 255 255 / 0.7);
+
+  --ease-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  --animate-fade-in: fade-in 0.2s var(--ease-soft);
+  --animate-fade-out: fade-out 0.15s var(--ease-soft);
+  --animate-slide-in-right: slide-in-right 0.32s var(--ease-soft);
+  --animate-slide-out-right: slide-out-right 0.22s var(--ease-soft);
+  --animate-slide-in-left: slide-in-left 0.32s var(--ease-soft);
+  --animate-slide-out-left: slide-out-left 0.22s var(--ease-soft);
+  --animate-pop-in: pop-in 0.22s var(--ease-soft);
+  --animate-pop-out: pop-out 0.15s var(--ease-soft);
+
+  @keyframes fade-in { from { opacity: 0 } to { opacity: 1 } }
+  @keyframes fade-out { from { opacity: 1 } to { opacity: 0 } }
+  @keyframes slide-in-right { from { transform: translateX(100%) } to { transform: translateX(0) } }
+  @keyframes slide-out-right { from { transform: translateX(0) } to { transform: translateX(100%) } }
+  @keyframes slide-in-left { from { transform: translateX(-100%) } to { transform: translateX(0) } }
+  @keyframes slide-out-left { from { transform: translateX(0) } to { transform: translateX(-100%) } }
+  @keyframes pop-in { from { opacity: 0; transform: translate(-50%, -50%) scale(0.96) } to { opacity: 1; transform: translate(-50%, -50%) scale(1) } }
+  @keyframes pop-out { from { opacity: 1; transform: translate(-50%, -50%) scale(1) } to { opacity: 0; transform: translate(-50%, -50%) scale(0.96) } }
+}
+
+/* ── Base ──────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-paper font-sans text-ink-900 antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+  :focus-visible {
+    outline: 3px solid var(--color-mango-500);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  ::selection { background: var(--color-mango-200); }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+/* ── Utilities ─────────────────────────────────────────────────── */
+@utility container-x {
+  @apply mx-auto w-full max-w-[1240px] px-4 sm:px-6 lg:px-8;
+}
+
+/* Frosted glass, light: for use over photos and the green band only */
+@utility glass {
+  background: rgb(255 255 255 / 0.74);
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  backdrop-filter: blur(14px) saturate(150%);
+  border: 1px solid rgb(255 255 255 / 0.7);
+  box-shadow: var(--shadow-glass);
+}
+
+/* Frosted glass, dark: for cards sitting on deep green */
+@utility glass-dark {
+  background: rgb(255 255 255 / 0.1);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid rgb(255 255 255 / 0.2);
+  box-shadow: 0 8px 32px -8px rgb(0 0 0 / 0.35), inset 0 1px 0 rgb(255 255 255 / 0.25);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
+@utility tabular { font-variant-numeric: tabular-nums; }
+
+@layer components {
+  /* Glossy highlight on solid buttons and badges */
+  .shine {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .shine::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgb(255 255 255 / 0.28) 0%, rgb(255 255 255 / 0) 55%);
+    pointer-events: none;
+  }
+  /* Soft highlights on deep-green bands (cheaper than blurred blobs) */
+  .glow-band {
+    background:
+      radial-gradient(45% 70% at 25% 0%, rgb(31 163 91 / 0.35) 0%, transparent 60%),
+      radial-gradient(40% 60% at 100% 100%, rgb(247 179 43 / 0.22) 0%, transparent 60%);
+  }
+  /* Soft brand glow used behind the hero */
+  .glow-brand {
+    background:
+      radial-gradient(60% 55% at 78% 18%, rgb(185 229 107 / 0.35) 0%, transparent 60%),
+      radial-gradient(50% 45% at 12% 30%, rgb(255 200 87 / 0.28) 0%, transparent 60%),
+      radial-gradient(70% 60% at 50% 110%, rgb(11 107 58 / 0.14) 0%, transparent 60%);
+  }
+}
